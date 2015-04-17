@@ -1,0 +1,43 @@
+<!-- 幻灯图管理 -->
+
+<div class="r21">
+    <div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;"><a href="{$adminurl}">图片管理</a> >>幻灯图管理</div>
+    <div class="bdrcontent">
+    <div class="tit24">幻灯图总数：<b>$count</b> 篇</div>
+    <div class="bdrcontent">
+    <div id="append_parent"></div>
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <!--{if $picInfo}-->
+    <!--{loop $picInfo $pic}-->
+    <tr>
+        <td width="535">
+        <!--{if $pic[src]}-->
+            <a target="_blank" href="$pic[src]"><img width="525" height="200" border="0" alt="" src="$pic[src]"></a>
+        <!--{else}-->暂无图片
+        <!--{/if}-->
+        </td>
+        <td style="padding-left:5px;line-height:27px;">            
+            <br>图片状态: <!--{if $pic[isAvailable] == 1}-->启用<!--{else}--><span style="color:red;text-align:center;">关闭</span><!--{/if}-->
+            <br>图片说明: $pic[title]
+            
+            <br>上传时间: $pic[createTime]
+           
+            <br>操作: <!--{if $pic[isAvailable] == 1}--><a href="{$pageurl}&do=del&picid=$pic[id]&isAvailable=0&page=$page" style="color:blue;">关闭图片</a>
+                     <!--{else}--><a href="{$pageurl}&do=del&picid=$pic[id]&isAvailable=1&page=$page" style="color:blue;">启用图片</a><!--{/if}--> 
+			<a style="color:blue;" href="{$adminurl}&do=edit&picid=$pic[id]&type=1" >编辑图片</a>
+            <a style="color:blue;" href="{$adminurl}&do=del&picid=$pic[id]&type=1" >删除图片</a>
+        </td>
+    </tr>
+    <!--{/loop}-->
+    <!--{else}-->
+    <tr><td>没有幻灯图片</td></tr>
+    <!--{/if}-->
+    </table>
+    <!--{if $pics}-->
+    <dl class="page3">
+    $multi
+    </dl>
+    <!--{/if}-->
+    </div>
+    </div>
+</div>

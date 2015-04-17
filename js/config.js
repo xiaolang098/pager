@@ -1,0 +1,1 @@
+var DOMAIN_ROOT = 'http://intpr9.bjsxp01.host.35.com/';

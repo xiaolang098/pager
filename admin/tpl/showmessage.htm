@@ -1,0 +1,18 @@
+<!--{template header}-->
+<div class="w980">
+    <caption>
+        <h2>信息提示</h2>
+    </caption>
+    <div class="cen5">
+        <!--{if $url_forward}-->
+            <div class="t"><a href="$url_forward">页面跳转中...</a></div>
+            <p>$message</p>
+        <!--{else}-->
+            <p>$message</p>
+            <a href="javascript:history.go(-1);">返回上一页</a> | 
+            <a href="index.php">返回首页</a>
+        <!--{/if}-->
+        <p>北京皓辰网域网络信息技术有限公司. 版</p>
+    </div>
+</div>
+<!--{template footer}-->

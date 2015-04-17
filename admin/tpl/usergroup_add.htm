@@ -1,0 +1,64 @@
+<!-- 添加用户组 -->
+
+<div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;"><a href="{$adminurl}">用户组管理</a> >>新增用户组</div>
+<form action="{$pageurl}" method="post">
+    <div class="bdrcontent">
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <th width="100">用户组名称</th>
+        <td>
+        <input type="text" value="" name="groupname" />
+        </td>
+    </tr>
+    <tr>
+        <th style="width: 12em;">管理员身份</th>
+        <td>
+        <input type="radio" value="1" name="manageconfig"> 拥有管理员身份
+        <input type="radio" checked="checked" value="0" name="manageconfig"> 禁止
+        <br><strong style="color:red;">注意 :</strong> 该用户组成员拥有管理员身份后，将不再受下面权限设置，将自动拥有全部权限
+        </td>
+    </tr>
+    
+    <tr>
+        <th>用户组管理</th>
+        <td>
+        <input type="radio" value="1" name="allowusergroup"> 可管理
+        <input type="radio" checked="checked" value="0" name="allowusergroup"> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>文章审核管理</th>
+        <td>
+        <input type="radio" value="1" name="allowarticle"> 可管理
+        <input type="radio" checked="checked" value="0" name="allowarticle"> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>图片管理</th>
+        <td>
+        <input type="radio" value="1" name="allowpic"> 可管理
+        <input type="radio" checked="checked" value="0" name="allowpic"> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>TAG管理</th>
+        <td>
+        <input type="radio" value="1" name="allowtag"> 可管理
+        <input type="radio" checked="checked" value="0" name="allowtag"> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>日志管理</th>
+        <td>
+        <input type="radio" value="1" name="allowlog"> 可管理
+        <input type="radio" checked="checked" value="0" name="allowlog"> 禁止
+        </td>
+    </tr>
+    </table>
+    <div class="footactions">
+        <input type="hidden" value="" name="gid">
+        <input type="submit" class="submit" value="添加用户组" name="groupsubmit">
+    </div>
+    </div>
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>

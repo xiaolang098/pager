@@ -1,0 +1,238 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">针式打印机网</a>
+</div>
+<div class="guide_right"></div>
+</div>
+<div id="body">
+    <!--{template index_left}-->
+    <div id="center_hailing1">
+        <div class="center_centerleft">
+            <div class="loding_s">
+                <div id=lantern_slide>
+                <TABLE class=ge id=ge cellSpacing=0 cellPadding=0>
+                <TBODY>
+                <TR>
+                <TD class=pic id=bimg  >
+                    <!---图像大小300px×300px--->
+                     <!--{loop $arr_roll $key $value}-->
+                    <div class="<!--{if $k==0}-->dis<!--{else}-->undis<!--{/if}-->" name="f">
+                        <img alt=""  width="443" height="220" src="/{$value['src']}" />
+                    </div><!--这里只要修改width里table的值，和img里的值-->
+                     <!--{/loop}-->
+                    
+                
+                <TABLE id=font_hd cellSpacing=0 cellPadding=0>
+                <TBODY>
+                <TR>
+                <TD width="310" class=lkff id=info>
+                </TD>
+                <TD width="132" align="right" id=simg>
+                <div class="" onclick=play(x[0],0) name="f">1</div>
+                <div class=f1 onclick=play(x[1],1) name="f">2</div>
+                <div class=f1 onclick=play(x[2],2) name="f">3</div>
+                <div class=f1 onclick=play(x[3],3) name="f">4</div>
+                <div class=f1 onclick=play(x[4],4) name="f">5</div>
+                </TD></TR></TBODY></TABLE>
+                <SCRIPT src="js/picshow.js" type=text/javascript></SCRIPT>
+                </TD></TR></TBODY></TABLE></div>
+            </div>
+            <div class="shuiqu">
+                <div class="sheshuiqu">
+                    <h3><span>涉税区</span><!--{if $count_sheshui>6}--><a href="/index.php?ac=category&id=1" target="_blank">更多</a><!--{/if}--></h3>
+                    <ul>
+                        <!--{loop $arr_sheshui $k $val}-->
+                        <li><a href="/index.php?ac=article&id=$val['id']" target="_blank">{$val['title']}</a></li>
+						<!--{/loop}-->
+                       
+                    </ul>
+                </div>
+                <div class="sheshuiqu">
+                    <h3><span>非税区</span><!--{if $count_feisheshui>6}--><a href="/index.php?ac=category&id=1" target="_blank">更多</a><!--{/if}--></h3>
+                    <ul>
+						 <!--{loop $arr_feisheshui $k $val}-->
+                        <li><a href="/index.php?ac=article&id=$val['id']" target="_blank">{$val['title']}</a></li>
+						<!--{/loop}-->
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="center_centerright">
+            <div class="gonggao">
+                <h4>最新值得关注的公告</h4>
+                <div class="gonggaoselect">
+                    <ul>
+                        <!--{loop $arr_notice $k $val}-->
+                        <li><a href="#" target="_blank"><!--{eval echo $val['message']}--></a></li>
+                        <!--{/loop}-->
+                        </ul>
+                </div>
+            </div>
+            
+            <div class="news">
+            <SCRIPT src="js/tabcontent.js" type=text/javascript></SCRIPT>
+                <ul id="countrytabs" class="shadetabs">
+                <li style="width:75px;">最新资讯</li>
+                <li><a href="#" rel="country1" class="selected">公司动态</a></li>
+                <li><a href="#" rel="country2">行业动态</a></li>
+                <li><a href="#" rel="country3">政策解读</a></li>
+                </ul>
+                <div style=" width:295px; height:120px;padding:10px 0px 10px 5px; word-break:break-all;overflow:hidden;">
+                <!--{loop $arr_news $k $val}-->
+	                <div id="country<!--{eval echo $k+1;}-->" class="tabcontent">
+	                   $val['content']
+	                </div>
+                <!--{/loop}-->
+                </div>
+                <script type="text/javascript">
+                var countries=new ddtabcontent("countrytabs")
+                countries.setpersist(true)
+                countries.setselectedClassTarget("link") //"link" or "linkparent"
+                countries.init()
+                </script>
+            </div>
+            
+            <div class="dayinji">
+                <h4><span>打印机</span><a href="/index.php?ac=article&id=$arr_print['id']" target="_blank">更多</a></h4>
+                <dl>
+                    <dt><a href="/index.php?ac=article&id=$arr_print['id']" target="_blank"><img src="$arr_print['pic']" width="129" height="104" alt="" /></a></dt>
+                    <dd>$arr_print['productInfo']
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="rollBox">
+        <h5><span>推荐机型图片展示</span><a href="#" target="_blank">更多</a></h5>
+        <a href="javascript:;" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()" class="img1" hidefocus="true"></a>
+             <div class="Cont" id="ISL_Cont">
+              <div class="ScrCont">
+               <div id="List1">
+                <!-- 图片列表 begin -->
+				<!--{loop $arr_pic $k $val}-->
+                <div class="pic">
+                  <a href="/index.php?ac=article&id=$val['id']" target="_blank"><img src="$val['pic']" width="129" height="104"/></a>
+                 </div>
+				 <!--{/loop}-->
+                <!-- 图片列表 end -->
+               </div>
+               <div id="List2"></div>
+              </div>
+             </div>
+        <a href="javascript:;"  onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()" class="img2" hidefocus="true"></a>
+            </div>
+        
+        <script language="javascript" type="text/javascript">
+        <!--//--><![CDATA[//><!--
+        //图片滚动列表 mengjia 070816
+        var Speed = 10; //速度(毫秒)
+        var Space = 10; //每次移动(px)
+        var PageWidth = 160; //翻页宽度
+        var fill = 0; //整体移位
+        var MoveLock = false;
+        var MoveTimeObj;
+        var Comp = 0;
+        var AutoPlayObj = null;
+        GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+        GetObj('ISL_Cont').scrollLeft = fill;
+        GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
+        GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
+        AutoPlay();
+        function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval
+        
+        ('document.all.'+objName)}}
+        function AutoPlay(){ //自动滚动
+        clearInterval(AutoPlayObj);
+        AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',5000); //间隔时间
+        }
+        function ISL_GoUp(){ //上翻开始
+        if(MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        MoveTimeObj = setInterval('ISL_ScrUp();',Speed);
+        }
+        function ISL_StopUp(){ //上翻停止
+        clearInterval(MoveTimeObj);
+        if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0){
+        Comp = fill - (GetObj('ISL_Cont').scrollLeft % PageWidth);
+        CompScr();
+        }else{
+        MoveLock = false;
+        }
+        AutoPlay();
+        }
+        function ISL_ScrUp(){ //上翻动作
+        if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj
+        
+        ('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
+        GetObj('ISL_Cont').scrollLeft -= Space ;
+        }
+        function ISL_GoDown(){ //下翻
+        clearInterval(MoveTimeObj);
+        if(MoveLock) return;
+        clearInterval(AutoPlayObj);
+        MoveLock = true;
+        ISL_ScrDown();
+        MoveTimeObj = setInterval('ISL_ScrDown()',Speed);
+        }
+        function ISL_StopDown(){ //下翻停止
+        clearInterval(MoveTimeObj);
+        if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0 ){
+        Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
+        CompScr();
+        }else{
+        MoveLock = false;
+        }
+        AutoPlay();
+        }
+        function ISL_ScrDown(){ //下翻动作
+        if(GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth){GetObj('ISL_Cont').scrollLeft =
+        
+        GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;}
+        GetObj('ISL_Cont').scrollLeft += Space ;
+        }
+        function CompScr(){
+        var num;
+        if(Comp == 0){MoveLock = false;return;}
+        if(Comp < 0){ //上翻
+        if(Comp < -Space){
+           Comp += Space;
+           num = Space;
+        }else{
+           num = -Comp;
+           Comp = 0;
+        }
+        GetObj('ISL_Cont').scrollLeft -= num;
+        setTimeout('CompScr()',Speed);
+        }else{ //下翻
+        if(Comp > Space){
+           Comp -= Space;
+           num = Space;
+        }else{
+           num = Comp;
+           Comp = 0;
+        }
+        GetObj('ISL_Cont').scrollLeft += num;
+        setTimeout('CompScr()',Speed);
+        }
+        }
+        //--><!]]>
+        </script>
+        
+        <div class="yqlianjie">
+        <h5><span>友情链接</span><a href="#" target="_blank">更多</a></h5>
+        <ul>
+            <li><a href="#" target="_blank">针式打印机</a></li>
+            <li><a href="#" target="_blank">针式打印机</a></li>
+            <li><a href="#" target="_blank">针式打印机</a></li>
+            <li><a href="#" target="_blank">针式打印机</a></li>
+            <li><a href="#" target="_blank">针式打印机</a></li>
+            <li><a href="#" target="_blank">针式打印机</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+<!--{template footer}-->
+

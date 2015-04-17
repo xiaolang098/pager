@@ -1,0 +1,50 @@
+<!--{template admin/tpl/header}-->
+<!--{template admin/tpl/left}-->
+
+<!--{if $do == 'add'}-->
+	<!--{template admin/tpl/file_add}-->
+<!--{elseif $do == 'edit' }-->
+	<!--{template admin/tpl/file_add}-->
+<!--{elseif $do == 'list' }-->
+<div class="r21">
+	<div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;">
+	文件管理
+	</div>
+	<div class="bdrcontent">
+		<div class="tit24">当前文件数量：<b>$count</b> 篇</div>
+		<div id="append_parent"></div>
+		<table cellspacing="1" cellspacing="0" class="tab21">
+			<tr>
+				<th width='35'>文件id</th>
+				<th width='300'>文件标题</th>
+
+				<th width='110'>发布时间</th>
+				<th width='150'>操作</th>
+			</tr>
+			<!--{loop $fileInfo $key $value}-->
+			<tr>
+				<td>$value['id']</td>
+				<td>$value['title']</td>
+				<td>$value['createTime']</td>
+				<td>
+					<a class="blue1" href="admincp.php?ac=articles&do=edit&id=$value['id']">查看</a>&nbsp;
+					<a class="blue1" href="admincp.php?ac=file&do=edit&id=$value['id']">编辑</a>&nbsp;
+					<a class="blue1" href="javascript:del($value['id']);">删除</a>
+				</td>
+			</tr>
+			<!--{/loop}-->
+			<script type="text/javascript">
+				function del(id){
+					if(confirm('确认要删除该文章吗？')){
+						window.location.href = "admincp.php?ac=file&do=del&id="+id;	
+					}
+				}
+			</script>
+		</table>
+		<dl class="page3">
+		$multi
+		</dl>
+	</div>
+</div>
+
+<!--{/if}-->

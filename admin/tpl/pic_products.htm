@@ -1,0 +1,45 @@
+<!-- 产品 -->
+
+<div class="r21">
+    <div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;"><a href="{$adminurl}">图片管理</a> >>产品</div>
+    <div class="bdrcontent">
+    <div class="tit24">产品总数：<b>$count</b>个</div>
+    <div class="bdrcontent">
+    <table cellspacing="1" cellspacing="0" class="formtable" style="table-layout:fixed;" width="600">
+    <!--{if $picInfo}-->
+    <!--{loop $picInfo $pic}-->
+    <tr>
+        <td width="300">
+        <!--{if $pic[src]}-->
+            <a target="_blank" href="$pic[src]"><img width="210" height="140" border="0" alt="" src="$pic[src]"></a>
+        <!--{else}-->暂无图片
+        <!--{/if}-->
+        </td>
+        <td style="padding-left:5px;line-height:25px;word-break:break-all;overflow:hidden;" width="200">文章标题: <a href="$pic[articleSrc]" target="_blank" style="color:blue;"><!--{eval echo strip_tags($pic[title]);}--></a>
+            
+            <br>图片状态: <!--{if $pic[isAvailable] == 1}-->启用<!--{else}--><span style="color:red;text-align:center;">关闭</span><!--{/if}-->
+            <br>上传时间: $pic[createTime]
+            <br>操作: <!--{if $pic[isAvailable] == 1}--><a href="{$pageurl}&do=del&picid=$pic[id]&isAvailable=0&page=$page" style="color:blue;">关闭图片</a>
+                     <!--{else}--><a href="{$pageurl}&do=del&picid=$pic[id]&isAvailable=1&page=$page" style="color:blue;">启用图片</a><!--{/if}-->
+		    &nbsp;<a href="{$adminurl}&do=edit&picid=$pic[id]&type=2" style="color:blue;">编辑图片</a>
+            <a style="color:blue;" href="{$adminurl}&do=del&picid=$pic[id]&type=2" >删除图片</a>
+		    <br>
+            <span style="word-break:break-all;overflow:hidden;">
+			图片说明:$pic[content]
+            </span>
+        </td>
+    </tr>
+    <!--{/loop}-->
+    <!--{else}-->
+    <tr><td>没有配图</td></tr>
+    <!--{/if}-->
+    </table>
+    <!--{if $pics}-->
+    <dl class="page3">
+    $multi
+    </dl>
+    <!--{/if}-->
+    </div>
+    </div>
+</div>
+

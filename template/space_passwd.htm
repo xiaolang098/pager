@@ -1,0 +1,106 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">票服网首页</a>><a href="/space.php?do=info">会员中心</a>>修改密码
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+    <!--{template space_left}-->
+    <div id="list_right">
+    <h3>修改密码</h3>
+        <div class="ziliao_info">
+        <form action="/space.php?do=passwd" method="post" onsubmit="return checksubmit();">
+        <table width="743px" cellspacing="15" cellpadding="0">
+      <tr>
+        <td width="64" >用户ID:</td>
+        <td width="634" >{$_SGLOBAL['supe_uid']}</td>
+      </tr>
+      <tr>
+        <td>用户名：</td>
+        <td>{$_SGLOBAL['supe_username']}</td>
+      </tr>
+      <tr>
+        <td>原密码：</td>
+        <td><input id="oldpasswd" name="oldpasswd" type="password" value="" onblur="checkoldpasswd();"/><p id="errorpasswd"></p></td>
+      </tr>
+      <tr>
+        <td>新密码：</td>
+        <td><input id="newpasswd" name="newpasswd" type="password" value="" onblur="checklength(this.value)"/><p id="errorpwd1"></p></td>
+      </tr>
+      <tr>
+        <td>确认密码：</td>
+        <td><input id="newpasswd2" name="newpasswd1" type="password" value="" onblur="checknewpasswd()"/><p id="errorpwd2"></p></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input name="passwdsubmit" type="submit"  value="确认修改" style=" width:85px; height:30px; line-height:25px; color:#333;" /></td>
+        <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+      </tr>
+    </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var checkoldpwd = true;
+    var checknewpwd = true;
+	var chlength = true;
+	function checklength(value){
+		if(value.length <6 || value.length>20){
+			$('#errorpwd1').html("密码应在6-20个字符间");
+			chlength = false;
+		}else{
+			$('#errorpwd1').html("");
+			chlength = true;
+		}
+	}
+    function checkoldpasswd(){
+        var oldpasswd = $('#oldpasswd').val();
+        $.ajax({
+           type: "POST",
+           url:  DOMAIN_ROOT + "ajax.php",
+           cache: false,
+           data: "do=checkoldpasswd&passwd="+oldpasswd,
+           success: function(msg){
+             if(msg == 1){
+                $("#errorpasswd").html('密码正确');
+                checkoldpwd = true;
+             }
+             if(msg == 0){
+                  $("#errorpasswd").html('密码错误');
+                  checkoldpwd = false;
+             }
+           }
+        });
+    }
+
+    function checknewpasswd(){
+       var newpasswd1 = $('#newpasswd').val();
+	   var newpasswd2 = $('#newpasswd2').val();
+
+	   if(newpasswd1 != '' && newpasswd2 != ''){
+			if(newpasswd1 == newpasswd2){
+				$('#errorpwd2').html('两次输入密码一致');
+				checknewpwd = true;
+			}else{
+				$('#errorpwd2').html('两次输入密码不一致');
+				checknewpwd = false;
+			}
+		}else{
+			$('#pwc').val('');
+			checknewpwd = false;
+		}
+    }
+
+	function checksubmit(){
+		if(checknewpwd == false || checkoldpwd == false ||chlength==false){
+			return false;
+		}else{
+			return true;
+		}
+	}
+</script>
+<!--{template footer}-->
+

@@ -1,0 +1,27 @@
+
+<div class="r21">
+<style>
+    form {margin: 0;}
+    textarea {display: block;}
+</style>
+
+<form id="example" name="example" method="post" <!--{if $do == 'edit'}-->action="admincp.php?ac=news&do=edit"
+<!--{else}-->action="admincp.php?ac=news&do=add"<!--{/if}-->>
+    <h3>新闻内容:<textarea cols="50" rows="10" id="content" name="content">$newsOneInfo['content']</textarea></h3>
+    <h3>新闻分类:
+        <select name="typeid">
+            <option value='1' <!--{if $newsOneInfo['typeid'] == 1}-->selected<!--{/if}--> >公司动态</option>
+            <option value='2' <!--{if $newsOneInfo['typeid'] == 2}-->selected<!--{/if}-->>行业动态</option>
+            <option value='3' <!--{if $newsOneInfo['typeid'] == 3}-->selected<!--{/if}-->>政策解读 </option>
+        </select>
+    </h3>
+    
+    <!--{if $do == 'edit'}-->
+        <input type='hidden' name='newsId' value="$newsOneInfo['id']">
+        <input type="submit" name="newseditsubmit" value="编辑提交" />
+    <!--{else}-->   
+        <input type="submit" name="newsubmit" value="提交内容" />
+    <!--{/if}-->
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>

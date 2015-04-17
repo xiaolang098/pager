@@ -1,0 +1,90 @@
+<?php
+/**
+ * 【极客】站点配置文件
+ * $Id: config.php-dist 27 2010-09-25 11:33:10Z wukai$ 
+ */
+
+//Ucenter Home配置参数
+$_SC = array();
+$_SC['dbhost']          = '192.168.1.161'; //服务器地址
+$_SC['dbuser']          = 'igeek'; //用户
+$_SC['dbpw']            = 'jMpNntQKr9tBERmx'; //密码
+$_SC['dbcharset']       = 'gbk'; //字符集
+$_SC['pconnect']        = 0; //是否持续连接
+$_SC['dbname']          = 'igeek_uchome'; //数据库
+$_SC['tablepre']        = 'uchome_'; //表名前缀
+$_SC['charset']         = 'gbk'; //页面字符集
+
+$_SC['gzipcompress']    = 0; //启用gzip
+
+$_SC['cookiepre']       = 'uchome_'; //COOKIE前缀
+$_SC['cookiedomain']    = '.igeek.com.cn'; //COOKIE作用域
+$_SC['cookiepath']      = '/'; //COOKIE作用路径
+
+$_SC['attachdir']       = './attachment/'; //附件本地保存位置(服务器路径, 属性 777, 必须为 web 可访问到的目录, 相对目录务必以 "./" 开头, 末尾加 "/")
+$_SC['attachurl']       = 'attachment/'; //附件本地URL地址(可为当前 URL 下的相对地址或 http:// 开头的绝对地址, 末尾加 "/")
+
+$_SC['siteurl']         = ''; //站点的访问URL地址(http:// 开头的绝对地址, 末尾加 "/")，为空的话，系统会自动识别。
+
+$_SC['tplrefresh']      = 0; //判断模板是否更新的效率等级，数值越大，效率越高; 设置为0则永久不判断
+
+//Ucenter Home安全相关
+$_SC['founder']         = '1'; //创始人 UID, 可以支持多个创始人，之间使用 “,” 分隔。部分管理功能只有创始人才可操作。
+$_SC['allowedittpl']    = 0; //是否允许在线编辑模板。为了服务器安全，强烈建议关闭
+
+//应用的UCenter配置信息(可以到UCenter后台->应用管理->查看本应用->复制里面对应的配置信息进行替换)
+define('UC_CONNECT', 'mysql');
+define('UC_DBHOST', '192.168.1.41');
+define('UC_DBUSER', 'ssouc');
+define('UC_DBPW', 'LDNBRT82rwJ36M4Z');
+define('UC_DBNAME', 'sso_ucenter');
+define('UC_DBCHARSET', 'gbk');
+define('UC_DBTABLEPRE', '`sso_ucenter`.uc_');
+define('UC_DBCONNECT', '0');
+define('UC_KEY', 'be0ffWlFK+P57hVUqD4WREdfeDvGoDpA1/fF/Q8');
+define('UC_API', 'http://ucenter.it168.com');
+define('UC_CHARSET', 'gbk');
+define('UC_IP', '192.168.1.41');
+define('UC_APPID', '21');
+define('UC_PPP', '20');
+
+//极客发帖论坛地址
+define('SSO_HOST', 'http://sso.it168.com');
+define('BBS_HOST', 'http://bbs.igeek.com');
+define('BBSLIB_DIR', '/www/bbslib');
+define('UCHOME_DOMAIN', 'http://www.igeek.com.cn');
+define('SOU_IT168_HOST', 'http://sou.it168.com');
+
+//论坛对应编号（ID）表
+$bbs_map =array(
+    '20' => 'apple.it168.com',
+    '22' => 'gamebbs.it168.com',
+    '23' => 'macos.it168.com',
+    '26' => 'pcbbs.it168.com',
+    '32' => 'photobbs.it168.com',
+    '34' => 'softbbs.it168.com',
+    '40' => 'amoi.it168.com',
+    '41' => 'anycall.it168.com',
+    '43' => 'benyouhui.it168.com',
+    '44' => 'ce.it168.com',
+    '45' => 'dell.it168.com',
+    '46' => 'diybbs.it168.com',
+    '47' => 'ham-gps.it168.com',
+    '48' => 'moto.it168.com',
+    '49' => 'tianyi.it168.com',
+    '50' => 'smart.it168.com',
+    '51' => 'bbs.qudao168.com',
+    '60' => 'sebbs.it168.com',
+    '61' => 'nokia.it168.com',
+    '99' => 'bbs.igeek.com'
+);
+
+//sso同步退出域名
+$valid_domains = array(
+    'sso.it168.com',
+    'sso.igeek.com',
+    'tsso.igeek.com',
+    'sso.igeek.com.cn',
+    'sso.benyouhui.com'
+)
+?>

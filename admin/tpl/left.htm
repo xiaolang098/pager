@@ -1,0 +1,138 @@
+<!-- left -->
+<div class="l21">
+	<div class="div21">
+		<a href='admincp.php?ac=articles'>文章管理</a>
+	</div>
+	<!--{if $ac == 'articles'}-->
+		<ul class="list21">
+			<li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=articles&do=add">发表文章</a>
+			</li>
+			<li <!--{if $do == 'list'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=articles&do=list">文章列表</a>
+			</li>
+			<li <!--{if $do == 'edit'}-->class="here"<!--{/if}-->>
+				编辑文章
+			</li>
+		</ul>
+	<!--{/if}-->
+	<div class="div21">
+		<a href='admincp.php?ac=articlestype'>文章分类管理</a>
+	</div>
+	<!--{if $ac == 'articlestype'}-->
+		<ul class="list21">
+			<li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=articlestype&do=add">新建文章分类</a>
+			</li>
+			<li <!--{if $do == 'list'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=articlestype&do=list">文章分类列表</a>
+			</li>
+			<li <!--{if $do == 'edit'}-->class="here"<!--{/if}-->>
+				编辑文章分类
+			</li>
+		</ul>
+	<!--{/if}-->
+	<div class="div21">
+		<a href='admincp.php?ac=pic'>图片管理</a>
+	</div>
+	<!--{if $ac == 'pic'}-->
+		<ul class="list21">
+			<li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=pic&do=add">添加图片</a>
+			</li>
+			<li <!--{if $do == 'list' && $type == 1}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=pic&do=list&type=1">幻灯片管理</a>
+			</li>
+			<li <!--{if $do == 'list' && $type == 2}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=pic&do=list&type=2">产品管理</a>
+			</li>
+			<li <!--{if $do == 'edit' }-->class="here"<!--{/if}-->>
+				图片编辑
+			</li>
+			
+		</ul>
+	<!--{/if}-->
+
+	<div class="div21">
+		<a href='admincp.php?ac=file'>上传文件</a>
+	</div>
+	<!--{if $ac == 'file'}-->
+		<ul class="list21">
+			<li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=file&do=add">上传文件</a>
+			</li>
+			<li <!--{if $do == 'list'}-->class="here"<!--{/if}-->>
+				<a href="admincp.php?ac=file&do=list">文件管理</a>
+			</li>
+			
+			<li <!--{if $do == 'edit' }-->class="here"<!--{/if}-->>
+				图片编辑
+			</li>
+			
+		</ul>
+	<!--{/if}-->
+	<div class="div21">
+        <a href='admincp.php?ac=notice'>公告</a>
+    </div>
+    <!--{if $ac == 'notice'}-->
+        <ul class="list21">
+            <li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+                <a href="admincp.php?ac=notice&do=add">添加公告</a>
+            </li>
+            <li <!--{if $do == 'list' && $typeid == 1}-->class="here"<!--{/if}-->>
+                <a href="admincp.php?ac=notice&do=list&typeid=1">首页公告</a>
+            </li>
+            <li <!--{if $do == 'list' && $typeid == 2}-->class="here"<!--{/if}-->>
+                <a href="admincp.php?ac=notice&do=list&typeid=2">发货公告</a>
+            </li>
+        </ul>
+    <!--{/if}-->
+    <div class="div21">
+        <a href='admincp.php?ac=news'>新闻</a>
+    </div>
+    <!--{if $ac == 'news'}-->
+        <ul class="list21">
+            <li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+                <a href="admincp.php?ac=news&do=add">添加新闻</a>
+            </li>
+            <li <!--{if $do == 'list'}-->class="here"<!--{/if}-->>
+                <a href="admincp.php?ac=news&do=list">新闻管理</a>
+            </li>
+            
+        </ul>
+    <!--{/if}-->
+	<div class="div21">
+        <a href='admincp.php?ac=comment'>留言</a>
+    </div>
+    <!--{if $ac == 'comment'}-->
+        <ul class="list21">
+            <li <!--{if $do == 'add'}-->class="here"<!--{/if}-->>
+                回复留言
+            </li>
+            <li <!--{if $do == 'list'}-->class="here"<!--{/if}-->>
+                <a href="admincp.php?ac=comment&do=list">留言管理</a>
+            </li>
+            
+        </ul>
+    <!--{/if}-->
+    
+    <div class="div21">
+        <a href="admincp.php?ac=usergroup">用户组管理</a>
+    </div>
+    <!--{if $ac == 'usergroup'}-->
+	    <ul class="list21">
+	        <li <!--{if $op=='grouplist'}-->class="here"<!--{/if}-->>
+	           <a href="admincp.php?ac=usergroup&op=grouplist">用户组列表</a>
+	        </li>
+	        <li <!--{if $op=='add'}-->class="here"<!--{/if}-->>
+	           <a href="admincp.php?ac=usergroup&op=add">添加用户组</a>
+	        </li>
+	        <li <!--{if $op=='userlist'}-->class="here"<!--{/if}-->>
+	           <a href="admincp.php?ac=usergroup&op=userlist">管理用户组别</a>
+	        </li>
+	        <li <!--{if $op=='edit'}-->class="here"<!--{/if}-->>
+	                           编辑用户组
+	        </li>
+	    </ul>
+    <!--{/if}-->
+</div>

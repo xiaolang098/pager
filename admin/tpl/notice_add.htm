@@ -1,0 +1,25 @@
+
+<div class="r21">
+<style>
+    form {margin: 0;}
+    textarea {display: block;}
+</style>
+
+<form id="example" name="example" method="post" action="admincp.php?ac=notice&do=add">
+    <h3>公告内容:<textarea cols="50" rows="10" id="content" name="content"></textarea></h3>
+    <h3>公告分类:
+        <select name="typeid">
+            <option value='1' >首页公告</option>
+            <option value='2' >发货公告</option>
+        </select>
+    </h3>
+    
+    <!--{if $do == 'edit'}-->
+        <input type='hidden' name='articleId' value="$articleOneInfo['id']">
+        <input type="submit" name="articleeditsubmit" value="编辑提交" />
+    <!--{else}-->   
+        <input type="submit" name="noticesubmit" value="提交内容" />
+    <!--{/if}-->
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>

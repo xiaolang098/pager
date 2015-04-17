@@ -1,0 +1,71 @@
+
+<div class="r21">
+<style>
+    form {margin: 0;}
+    textarea {display: block;}
+</style>
+<script charset="utf-8" src="{$_SC['siteurl']}kindeditor/kindeditor.js"></script>
+<script>
+    KE.show({
+        id : 'content1',
+        resizeMode : 0,
+        cssPath : '{$_SC['siteurl']}kindeditor/index.css',
+        imageUploadJson : '{$_SC['siteurl']}kindeditor/php/upload_json.php',
+        fileManagerJson : '{$_SC['siteurl']}kindeditor/php/file_manager_json.php',
+        afterCreate : function(id) {
+            KE.event.ctrl(document, 13, function() {
+                KE.util.setData(id);
+                document.forms['example'].submit();
+            });
+            KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+                KE.util.setData(id);
+                document.forms['example'].submit();
+            });
+        }
+    });
+</script>
+
+<form id="example" name="example" method="post" <!--{if $do == 'edit'}-->action="admincp.php?ac=articles&do=edit"<!--{else}-->action="admincp.php?ac=articles&do=add"<!--{/if}--> enctype="multipart/form-data">
+    <h3>标题:<input type="text" name="title" style="width:200px" value="$articleOneInfo['title']"></h3>
+    <h3>作者:<input type="text" name="author" style="width:200px" value="$articleOneInfo['author']"></h3>
+    <h3>文章分类:
+        <select name="typeid" onchange="typeChange(this.value);">
+            <!--{loop $_SGLOBAL['articletype'] $key $value}-->
+            <option value='$key' <!--{if $articleOneInfo && $articleOneInfo['typeId'] == $key }--> selected<!--{/if}-->>$value</option>
+            <!--{/loop}-->
+        </select>
+    </h3>
+    <textarea id="content1" name="content1" style="width:700px;height:300px;visibility:hidden;">
+    <!--{if $articleOneInfo}-->$articleOneInfo['content']<!--{/if}-->
+    </textarea>
+    <br />
+    <div id='productInfo'  <!--{if $articleOneInfo['typeId'] != 3}-->style="display:none;"<!--{/if}-->>
+        <h3>产品详情:
+            <textarea id="content2" name="content2" style="width:700px;height:50px;">
+            <!--{if $articleOneInfo}-->$articleOneInfo['productInfo']<!--{/if}-->
+            </textarea>
+        </h3>
+        <h3>打印机图片:
+            <input type="file" name="upfile">
+        </h3>
+    </div>
+    <!--{if $do == 'edit'}-->
+        <input type='hidden' name='articleId' value="$articleOneInfo['id']">
+        <input type="submit" name="articleeditsubmit" value="编辑提交" />
+    <!--{else}-->    
+        <input type="submit" name="articlesubmit" value="提交内容" />
+    <!--{/if}-->
+		<input type="reset"  value="重置" />
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+</div>
+<script type="text/javascript">
+    function typeChange(value){
+        if(value == '3'){
+            document.getElementById('productInfo').style.display ='block';
+        }else{
+            document.getElementById('productInfo').style.display ='none';
+
+        }
+    }
+</script>

@@ -1,0 +1,67 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">票服网首页</a>><a href="/space.php?do=info">会员中心</a>>我的留言
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+	<!--{template space_left}-->
+	<div id="list_right">
+    <h3>我的留言</h3>
+        <!--{if $id}-->
+            <!--{template space_mycommentinfo}-->
+        <!--{else}-->
+    	<div class="chakanliuyan">
+        	<ul>
+            	<li class="choice"><input name="radio" type="radio" value="1" />&nbsp;&nbsp;已发布&nbsp;&nbsp;&nbsp;<input name="radio" type="radio" value="2" />&nbsp;&nbsp;已回复&nbsp;&nbsp;&nbsp;<input name="radio" type="radio" value="3" />&nbsp;&nbsp;所有</li>
+                <li class="searchchoice">
+                关键词:&nbsp;&nbsp;<input name="" type="text" />&nbsp;&nbsp;<input name="" type="button" value="查询" />&nbsp;&nbsp;<input name="" type="button" value="取消"  />
+                </li>
+            </ul>
+        	<form action="/space.php?do=mycomment" method="post" style="clear:both">
+            <table width="755" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td width="52" class="hui" style="border:0px;"><input name="checkall[]" type="checkbox" value="" /></td>
+            <td width="123" class="hui" style=" ">留言类型</td>
+            <td width="268" class="hui">留言标题</td>
+            <td width="65" class="hui">回复状态</td>
+            <td width="117" class="hui">留言者</td>
+            <td width="130" class="hui">时间</td>
+            </tr>
+            <!--{loop $result $key $value}-->
+            <tr>
+				<td id="borderright"><input name="checkall[]" type="checkbox" value="" /></td>
+				<input type="hidden" name="ids[]" value="$value['id']">
+				<td>产品咨询</td>
+				<td><a href="/space.php?do=mycomment&id=$value['id']" target="_blank">$value['title']</a></td>
+				<td><!--{if $value['status']}-->已回复<!--{else}-->未回复<!--{/if}--></td>
+				<td>$_SGLOBAL['supe_username']</td>
+				<td><!--{date('Y-m-d  H:i', $oneReply[dateline], 1)}--></td>
+            </tr>
+			<!--{/loop}-->
+            
+            </table>
+            <ul>
+                <li class="choice">&nbsp;<input name="" type="checkbox"  value="1" onclick="checkall();"/>&nbsp;&nbsp;全选&nbsp;&nbsp;&nbsp;<input name="deletesubmit" type="submit" value="删除全部" /></li>
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+                <li class="searchchoice yahoo">
+                $multi
+                </li>
+            </ul>
+
+            </form>
+        </div>
+        <!--{/if}-->
+    </div>
+</div>
+<script type="text/javascript">
+function checkall(){
+//alert(document.getElementsByName('subject[]').length);
+    for(var i=0; i<document.getElementsByName('checkall[]').length;i++){ 
+       document.getElementsByName('checkall[]')[i].checked = true;
+    }
+  }
+</script>
+<!--{template footer}-->

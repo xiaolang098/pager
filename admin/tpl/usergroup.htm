@@ -1,0 +1,50 @@
+<!--{eval $_TPL['titles'] = array('用户组管理');}-->
+<!--{template admin/tpl/header}-->
+<!--{template admin/tpl/left}-->
+
+<!-- 用户组管理 -->
+
+<div class="r21">
+
+<!--{if $op == 'grouplist'}-->
+    <div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;"><a href="{$adminurl}">用户组管理</a> >>用户组列表</div>
+    <div class="tit24">用户组个数：<b>$count</b> 个</div>
+    <div class="bdrcontent">
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <th width="200">用户组名称</th>
+        <th width="200">操作</th>
+    </tr>
+    <!--{if $groups}-->
+    <!--{loop $groups $k $group}-->
+    <tr>
+        <td>$group[groupname]</td>
+        <td>
+            <a href="{$adminurl}&op=edit&gid=$group[gid]" class="doaction">编辑</a>
+        </td>
+    </tr>
+    <!--{/loop}-->
+    <!--{else}-->
+    <tr><td>还没有用户组</td></tr>
+    <!--{/if}-->
+    </table>
+    </div>
+
+<!--{elseif $op == 'add'}-->
+
+    <!--{template admin/tpl/usergroup_add}-->
+
+<!--{elseif $op == 'userlist'}-->
+
+    <!--{template admin/tpl/usergroup_userlist}-->
+
+<!--{elseif $op == 'edit'}-->
+
+    <!--{template admin/tpl/usergroup_edit}-->
+
+<!--{/if}-->
+
+</div>
+
+<div class="clear"></div>
+<!--{template admin/tpl/footer}-->

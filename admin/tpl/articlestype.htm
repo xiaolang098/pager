@@ -1,0 +1,43 @@
+<!--{template admin/tpl/header}-->
+<!--{template admin/tpl/left}-->
+
+<!--{if $do =='add' || $do == 'edit'}-->
+	<!--{template admin/tpl/articlestype_add}-->
+<!--{else}-->
+<div class="r21">
+	<div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;">
+	文章分类管理
+	</div>
+	<div class="bdrcontent">
+		<div class="tit24"></div>
+		<div id="append_parent"></div>
+		<table cellspacing="1" cellspacing="0" class="tab21">
+			<tr>
+				<th width='60'>文章分类id</th>
+				<th width='150'>文章分类名称</th>
+				<th width='150'>操作</th>
+			</tr>
+			<!--{loop $_SGLOBAL['articletype'] $key $value}-->
+			<tr>
+				<td>$key</td>
+				<td>$value</td>
+				<td>
+					<a class="blue1" href="admincp.php?ac=articlestype&do=edit&id=$key">编辑</a>&nbsp;
+					<a class="blue1" href="javascript:del($key);">删除</a>
+				</td>
+			</tr>
+			<!--{/loop}-->
+			<script type="text/javascript">
+				function del(id){
+					if(confirm('确认要删除该分类吗？')){
+						window.location.href = "admincp.php?ac=articlestype&do=del&id="+id;	
+					}
+				}
+			</script>
+		</table>
+		<dl class="page3">
+		$multi
+		</dl>
+	</div>
+</div>
+<!--{/if}-->

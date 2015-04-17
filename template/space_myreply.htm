@@ -1,0 +1,36 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">票服网首页</a>><a href="/space.php?do=info">会员中心</a>>留言回复
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+    <!--{template space_left}-->
+    <div id="list_right">
+    <h3>我的回复</h3>
+        <div class="chakanliuyan">
+            
+            <table width="755" border="0" cellspacing="0" cellpadding="0">
+            <!--{loop $result $k $value}-->
+            <tr>
+            <td width="615" class="hui" style=" text-align:left; text-indent:15px;">$value['title']</td>
+            <td width="140" class="hui">时间</td>
+            </tr>
+            <tr>
+            <td style=" text-align:left; text-indent:15px;">$value['content']</td>
+            <td><!--{date('Y-m-d  H:i', $value[commemts_dateline])}--></td>
+            </tr>
+            <tr>
+            <td  style=" text-align:left; text-indent:15px;"><span>回复：</span>$value['reply']</td>
+            <td><!--{date('Y-m-d  H:i', $value[reply_dateline])}--></td>
+            </tr>
+            <!--{/loop}-->
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+<!--{template footer}-->

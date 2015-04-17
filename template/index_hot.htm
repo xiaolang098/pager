@@ -1,0 +1,15 @@
+<div class="list_left">
+     <h2>ÈÈµãÍÆ¼ö</h2>
+        <!--{loop $arr_pic $k $v}-->
+            <div class="zhanshi"  style=" margin-top:5px;">
+            <ul class="tu_top"></ul>
+            <ul class="tu_center">
+                <li><a href="/index.php?ac=article&id=$v['id']" title="$v['title']" target="_blank"><span><img src="/$v['pic']" width="129" height="84" alt="" /></span></a></li>
+            </ul>
+            <ul class="tu_bottom">
+                <li><a href="/index.php?ac=article&id=$v['id']">$v['title']</a></li>
+            </ul>
+            </div>
+        <!--{/loop}-->
+        
+</div>

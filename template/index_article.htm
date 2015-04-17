@@ -1,0 +1,21 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">针式打印机网</a>><a href="/index.php?ac=categoy&id=$result['typeId']">$config_category[$result['typeId']]</a>
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+    <!--{template index_hot}-->
+    <div id="list_right">
+    <h3>$result['title']</h3>
+    <p class="jieshao"><span><b>$result['title']</b><br />
+                                                          
+        编辑：$result['author']&nbsp;&nbsp;&nbsp;时间：$result['date']    阅读：（$result['viewnum']）</span>
+                                                                                       
+    $result['content']
+    </div>
+</div>
+
+<!--{template footer}-->

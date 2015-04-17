@@ -1,0 +1,20 @@
+<!--{template header}-->
+<div id="sd_center" style="text-align:center;padding-top:50px;height:300px;line-height:30px;">
+    <!--{if $extrahead}-->
+        $extrahead    
+    <!--{/if}-->
+    <caption>
+        <h2>信息提示</h2>
+    </caption>
+    <div class="sd_m_cen">
+        <!--{if $url_forward}-->
+            <div class="t"><a href="$url_forward">页面跳转中...</a></div>
+            <p>$message</p>
+        <!--{else}-->
+            <p>$message</p>
+            <a href="javascript:history.go(-1);">返回上一页</a> | 
+            <a href="{$_SC['siteurl']}">返回首页</a>
+        <!--{/if}-->
+    </div>
+</div>
+<!--{template footer}-->

@@ -1,0 +1,57 @@
+<!--{template admin/tpl/header}-->
+<!--{template admin/tpl/left}-->
+
+<!--{if $do == 'add'}-->
+    <!--{template admin/tpl/comment_add}-->
+<!--{elseif $do == 'edit'}-->
+    <!--{template admin/tpl/comment_add}-->
+<!--{else}-->
+<div class="r21">
+    <div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;">
+    留言管理
+    </div>
+    <div class="bdrcontent">
+        <div class="tit24">当前留言数量：<b>$count</b> 篇</div>
+        <div id="append_parent"></div>
+        <table cellspacing="1" cellspacing="0" class="tab21">
+            <tr>
+                <th width='35'>留言id</th>
+                <th width='300'>留言标题</th>
+                <th width='70'>留言作者</th>
+                <th width='110'>是否回复</th>
+				<th width='70'>作者手机</th>
+				<th width='70'>作者邮箱</th>
+				<th width='70'>作者qq</th>
+                <th width='150'>操作</th>
+            </tr>
+            <!--{loop $result $key $value}-->
+            <tr>
+                <td>$value['id']</td>
+                <td>$value['title']</td>
+                <td>$value['author']</td>
+				<td><!--{if $value['status']}-->是<!--{else}-->否<!--{/if}--></td>
+				<td>$value['phone']</td>
+				<td>$value['email']</td>
+				<td>$value['qq']</td>
+                <td>
+                    <a class="blue1" href="admincp.php?ac=comment&do=edit&id=$value['id']">查看</a>&nbsp;
+                    <a class="blue1" href="admincp.php?ac=comment&do=edit&id=$value['id']">编辑</a>&nbsp;
+                    <a class="blue1" href="admincp.php?ac=comment&do=del&id=$value['id']">删除</a>
+                </td>
+            </tr>
+            <!--{/loop}-->
+            <script type="text/javascript">
+                function del(id){
+                    if(confirm('确认要删除该留言吗？')){
+                        window.location.href = "admincp.php?ac=comment&do=del&id="+id;    
+                    }
+                }
+            </script>
+        </table>
+        <dl class="page3">
+        $multi
+        </dl>
+    </div>
+</div>
+<!--{/if}-->
+

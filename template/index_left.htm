@@ -1,0 +1,105 @@
+<div id="center_left">
+        <div class="spiffy_content">
+            <!--{if $username}-->
+                <div class="login" style="height:90px;">
+                    <h2>用户登录</h2>
+                    欢迎{$username}<br/>现在时间<!--{eval echo date('Y-m-d', $_SGLOBAL['timestamp'])}--><br/>
+                    <a href="/login.php?do=logout">退出</a>
+                </div>
+             <!--{else}-->
+                <div class="login">
+                    <h2>用户登录</h2>
+                    <form action="/login.php?do=login" method="post" name="form" id="form1">
+                        <table  border="0" align="center" cellpadding="5" cellspacing="0">
+
+                        <tr>
+                        <td class="title">用户名</td>
+                        </tr>
+                        <tr>
+                        <td><input name="username" type="text"  size="30"></td>
+                        </tr>
+                        <tr>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td class="title">密码</td>
+                        </tr>
+                        <tr>
+                        <td><input name="passwd" type="password" size="30"></td>
+                        </tr>
+                        <tr>
+                        <td class="bluese"><a href="/register.php">我要注册 </a>
+                        <a href="javascript:void(0);" onclick="submit()"><img src="/images/loginin.gif" width="70" height="21"></a> </td>
+                        <script type="text/javascript">
+                            function submit(){
+                                document.getElementById('form1').submit();
+                            }
+                        </script>
+                        </tr>
+                        <tr>
+                        <td style=" float:right"></td>
+                        </tr>
+                        </table>
+                    </form>
+                    
+                </div>
+            <!--{/if}-->
+            <div class="fahuo">
+            <h2>发货通知</h2>
+                <div id="demo" onmouseover="clearInterval(inter)" onmouseout="inter=setInterval(qswhMarquee,30)" style="overflow:hidden;height:200px">
+                 <div id="demo1">
+                    <ul class="infor_fahuo">
+                        <!--{loop $result_notice_send $k $val}-->
+                        <li><a href="#" target="_blank"><!--{eval echo cutstr($val['message'], 29, '..')}--></a></li>
+                        <!--{/loop}-->
+                    </ul>
+                </div>
+                <div id="demo2"></div>
+                </div>
+            </div>
+             <script>
+            var t=getid("demo"),t1=getid("demo1"),t2=getid("demo2"),sh=getid("show");
+            var inter;
+            t2.innerHTML=t1.innerHTML;
+            function qswhMarquee(){
+            if(t2.offsetTop<=t.scrollTop)
+             t.scrollTop-=t1.offsetHeight;
+             else
+            t.scrollTop++;
+             }
+            inter=setInterval(qswhMarquee,30);
+            function getid(id){
+             return document.getElementById(id);
+            }
+             </script>
+            
+            <div class="fuwuweixiu">
+                <h2>服务与维修</h2>
+                <ul>
+                    <!--{loop $result_weixu $k $v}-->
+                        <li><a href="/index.php?ac=article&id=$v['id']" target="_blank"><!--{eval echo $k+1}-->.&nbsp;$v['title']</a></li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+            <div class="download">
+                <h2>下载中心</h2>
+                <ul>
+                    <!--{loop $result_down $k $val}-->
+                    <li><a href="/index.php?ac=file&id=$val['id']" target="_blank">$val['title']</a></li>
+                    <!--{/loop}-->
+                </ul>
+            </div>
+            <div class="service">
+                <h2>在线客服</h2>
+                <ul>
+                    <li>QQ:675712155</li>
+                    <li>电话:010-62531599</li>
+                    <li>邮箱:jiaogong@263.net</li>
+                    <li>１号客服ＱＱ：519954565</li>
+                    <li>２号客服ＱＱ：675712155</li>
+                    <li>ｖｉｐ客服ＱＱ：178220578</li>
+                </ul>
+            </div>
+        </div>
+        <b class="spiffy2"></b>
+    </div>

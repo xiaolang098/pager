@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>海凌票服网注册</title>
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<SCRIPT src="/js/jquery.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/js/ScrollPic.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/js/config.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/js/regsiter.js" type=text/javascript></SCRIPT>
+</head>
+
+<body>
+<div id="topmain2">
+<div id="top">
+  <a href="index.html"><img src="/images/logo.gif" alt="" class="logo" title="hailing" border="0" width="118" height="90"></a>
+  <div class="return_home"><a href="" title="返回首页">返回海凌票服网首页</a></div>
+</div>
+</div>
+<div id="body">
+    <div class="zhucepage"> 
+        <ul class="zhuceleft"></ul>
+        <ul class="zhucecenter">会员注册必填信息</ul>
+        <ul class="zhuceright"></ul>
+        <div class="vipzhuce">
+        <form action="/register.php" method="post" onsubmit="return subcheck();">
+            <table width="560" cellspacing="15" cellpadding="0">
+                <tr> 
+                <th>用户名:</th> 
+                <td>
+					<input name="username" value="" maxlength="16"  class="vipzhuceinput" onblur="loseun(this.value)">
+				</td> 
+                </tr> 
+                <tr> 
+                <td>&nbsp;</td> 
+                <td valign="top" height="20"><span id ="unerror">不超过8个汉字，或16个字符(数字，字母和下划线)。</span></td> 
+                </tr>
+                <tr> 
+                <th>电子邮箱:</th> 
+                <td>
+					<input name="email" value=""  class="vipzhuceinput" onblur="loseem(this.value)">
+				</td> 
+                </tr> 
+                <tr> 
+                <td>&nbsp;</td> 
+                <td valign="top" height="20"><span id ="emailerror">请输入有效的电子邮箱，可用于登录您的帐户和找回密码。</span></td> 
+                </tr>            
+                <tr> 
+                <th>密码:</th> 
+                <td>
+					<input name="passwd" type= 'password' value="" maxlength=""  class="vipzhuceinput">
+				</td> 
+                </tr> 
+                <tr> 
+                <td>&nbsp;</td> 
+                <td valign="top" height="20"><span>最少6个字符，不超过12个字符(数字，字母和下划线；字母区分大小写)。</span></td> 
+                </tr>            
+                <tr> 
+                <th>确认密码:</th> 
+                <td>
+					<input id='passwd2' type= 'password'  name="passwd2" value="" maxlength="16"  class="vipzhuceinput" onblur="losepwc(this.value)">
+					<p id ="pwderror"></p>
+				</td> 
+                </tr> 
+                <tr> 
+				
+                <th>验证码:</th> 
+                <td><input id="seccode" name="seccode" value="" maxlength="16"  class="vipzhuceinput" style="width:70px;" onkeyup="checkSeccode()">
+				<script>seccode();</script>
+				<a href="javascript:updateseccode()" style="color:red;">更换一张</a>
+                
+                <font style="display:inline;">请输入左侧字符，不区分大小写</font> 
+               
+                </td> 
+                </tr>            
+                <tr> 
+                <td>&nbsp;</td> 
+                <td valign="top" height="20">
+					<span id="checkseccode"></span> <input type="hidden" id="setCode" value='0'>
+				</td> 
+                </tr>  
+              <tr>
+                <td>&nbsp;</td>
+                <td><input name="regsubmit" type="submit"  value="确定" style=" width:85px; height:30px; line-height:25px; margin-right:10px;" /><span>确定表示您同意<a href="#" target="_blank">服务使用协议</a></span></td>
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+              </tr>
+            </table>
+        </form>
+        </div>
+    </div>
+
+</div>
+<!--{template footer}-->

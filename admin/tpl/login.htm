@@ -1,0 +1,32 @@
+<!--{template admin/tpl/header}-->
+<style>
+.w980 {margin:130px auto 0;width:550px;}
+.tit22 {background:none repeat scroll 0 0 #99C521;border:1px solid #99C521;color:#000000;font:bold 20px/22px 宋体;height:34px;padding:15px 29px 0 15px;color:white;width:530px;}
+.tit22 a {color:white;}
+.bor21 {background:none repeat scroll 0 0 #FFFFFF;border:medium none;padding-bottom:20px;}
+.formtable th, .formtable td {padding:0.5em 0 0.5em 15px}
+</style>
+<form method="post" action="admincp.php">
+<table cellspacing="0" cellpadding="0" class="formtable">
+    <tr>
+        <th width="120">用户名 : </th>
+        <td>$_SCOOKIE['username'] (<a href="logging.php?do=logout&uhash=$_SGLOBAL[uhash]">退出</a>)</td>
+    </tr>
+    <tr>
+        <th>密码 : </th>
+        <td><input type="password" name="password" class="t_input" /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="hidden" name="loginsubmit" value="true" />
+            <input type="hidden" name="refer" value="$_SGLOBAL[refer]" />
+            <input type="submit" name="btnsubmit" value="进入后台" class="submit" />
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+
+<div class="clear"></div>
+<!--{template admin/tpl/footer}-->

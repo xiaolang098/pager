@@ -1,0 +1,12 @@
+<!--{template admin/tpl/header}-->
+<!--{template admin/tpl/left}-->
+
+<!--{if $do == 'add'}-->
+	<!--{template admin/tpl/pic_add}-->
+<!--{elseif $do == 'edit' && ($type == 1 || $type == 2)}-->
+	<!--{template admin/tpl/pic_add}-->
+<!--{elseif $do == 'list' && $type == 1}-->
+	<!--{template admin/tpl/pic_roll}-->
+<!--{elseif $do == 'list' && $type == 2}-->
+	<!--{template admin/tpl/pic_products}-->
+<!--{/if}-->

@@ -1,0 +1,46 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">针式打印机网</a>>留言列表
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+	<!--{template index_hot}-->
+	<div id="list_right">
+    <h3>留言列表</h3>
+        <!--{if $id}-->
+            <!--{template comment_list_one}-->
+        <!--{else}-->
+    	<div class="chakanliuyan">
+
+            <table width="755" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="268" class="hui">留言标题</td>
+                <td width="65" class="hui">回复状态</td>
+                <td width="117" class="hui">留言者</td>
+                <td width="130" class="hui">时间</td>
+            </tr>
+            <!--{loop $result $key $value}-->
+            <tr>
+				<td><a href="/comment.php?do=commentlist&id=$value['id']" target="_blank">$value['title']</a></td>
+				<td><!--{if $value['status']}-->已回复<!--{else}-->未回复<!--{/if}--></td>
+				<td>$_SGLOBAL['supe_username']</td>
+				<td><!--{date('Y-m-d  H:i', $oneReply[reply_dateline], 1)}--></td>
+            </tr>
+			<!--{/loop}-->
+            
+            </table>
+            <ul>
+                <li class="searchchoice yahoo">
+                $multi
+                </li>
+            </ul>
+            <a href="/comment.php" style='float: right;'>我要留言</a>
+        </div>
+        <!--{/if}-->
+    </div>
+</div>
+
+<!--{template footer}-->

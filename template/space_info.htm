@@ -1,0 +1,60 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">票服网首页</a>><a href="/space.php?do=info">会员中心</a>>基本资料
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+	<!--{template space_left}-->
+	<div id="list_right">
+    <h3>基本资料</h3>
+        <div class="ziliao_info">
+		<form action="/space.php?do=info&op=profile" method="post">
+			<table width="743px" cellspacing="15" cellpadding="0">
+			  <tr>
+				<td width="64" >用户ID:</td>
+				<td width="634" >{$space_info['id']}</td>
+			  </tr>
+			  <tr>
+				<td>用户名：</td>
+				<td>{$space_info['username']}</td>
+			  </tr>
+			  <tr>
+				<td>真实姓名：</td>
+				<td><input name="name" type="text" value="{$space_info['name']}" /></td>
+			  </tr>
+			  <tr>
+				<td>性别：</td>
+				<td><input name="sex" type="radio" value="1" <!--{if $space_info['sex'] == 1}-->checked="checked"<!--{/if}--> />&nbsp;&nbsp;男&nbsp;&nbsp;<input name="sex" type="radio" value="2" <!--{if $space_info['sex'] == 2}-->checked="checked"<!--{/if}-->/>&nbsp;&nbsp;女</td>
+			  </tr>
+			  <tr>
+				<td>电话：</td>
+				<td><input name="phone" type="text" value="<!--{if $space_info['phone']}-->{$space_info['phone']}<!--{/if}-->" /></td>
+			  </tr>
+			  <tr>
+				<td>MSN/QQ:</td>
+				<td><input name="qq" type="text" value="<!--{if $space_info['qq']}-->{$space_info['qq']}<!--{/if}-->" /></td>
+			  </tr>
+			  <tr>
+				<td>电子邮件：</td>
+				<td><input name="address" type="text" value="{$space_info['email']}" />&nbsp;&nbsp;&nbsp;邮箱如果修改，将会恢复到为验证状态</td>
+			  </tr>
+			  <tr>
+				<td>详细地址：</td>
+				<td><input name="" type="text" value="{$space_info['address']}"  style="width:500px;" /></td>
+			  </tr>
+			  <tr>
+				<td>&nbsp;</td>
+				<td><input name="profilesubmit" type="submit"  value="确认修改" style=" width:85px; height:30px; line-height:25px; color:#333;" />
+				<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+				</td>
+			  </tr>
+			</table>
+	</form>
+        </div>
+    </div>
+</div>
+
+<!--{template footer}-->

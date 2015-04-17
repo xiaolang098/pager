@@ -1,0 +1,81 @@
+<!-- 添加图片 -->
+
+<div class="r21">
+    <div class="tit24" style="font-size:12px;padding-bottom:5px;"><a href="{$adminurl}">图片管理</a> >>添加图片</div>
+    <div class="an3">
+        <a <!--{if $type == 1}-->class="lg08"<!--{else}-->class="lg8"<!--{/if}--> href="{$adminurl}&do=add&type=1">幻灯片</a> 
+        
+        <a <!--{if $type == 2}-->class="lg08"<!--{else}-->class="lg8"<!--{/if}--> href="{$adminurl}&do=add&type=2">产品</a> 
+    </div>
+<form name="uploadform" enctype="multipart/form-data" action="" method="post">
+    <div id="append_parent"></div>
+    <div class="bdrcontent" style="border-color:#D7D7D7;margin-top:-1px;">
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <td width="100">图片上传: </td>
+        <td width="700"><input name="upfile" type="file" />&nbsp;
+		<input type="button" value="上传" onclick="uploadimg(); return false;"></td>
+    </tr>
+    <tr><td height="160">图片预览: </td>
+        <td><iframe id="upframe" name="upframe" src="admin/upload_img.php<!--{if $do == 'edit'}-->?picId=$picInfo['id']&do=edit&img=$picInfo['src']<!--{/if}-->" style="display:none;"></iframe><div id="upimg"></div>
+    </tr>
+    <tr><td>图片标题: </td><td><input type="text" name="title" width="400" value="$picInfo['title']"/></td></tr>
+    <!--{if $type == 2}-->
+    <script charset="utf-8" src="{$_SC['siteurl']}kindeditor/kindeditor.js"></script>
+    <script>
+        KE.show({
+            id : 'content',
+            resizeMode : 0,
+            cssPath : '{$_SC['siteurl']}kindeditor/index.css',
+            imageUploadJson : '{$_SC['siteurl']}kindeditor/php/upload_json.php',
+            fileManagerJson : '{$_SC['siteurl']}kindeditor/php/file_manager_json.php',
+            afterCreate : function(id) {
+                KE.event.ctrl(document, 13, function() {
+                    KE.util.setData(id);
+                    document.forms['example'].submit();
+                });
+                KE.event.ctrl(KE.g[id].iframeDoc, 13, function() {
+                    KE.util.setData(id);
+                    document.forms['example'].submit();
+                });
+            }
+        });
+    </script>
+    <tr><td>图片说明: </td>
+        <td>
+            <textarea id="content" name="content" style="width:700px;height:300px;visibility:hidden;">
+            <!--{if $picInfo}-->$picInfo['content']<!--{/if}-->
+            </textarea>
+        </td>
+    </tr>
+    <!--{/if}-->
+    <!--{if $type == 3}-->
+    <tr><td>生效时间: </td><td><input type="text" name="dateline" onclick="showcalendar(event,this,1)" readonly /></td></tr>
+    <tr><td>图片说明: </td><td><input type="text" name="title" width="400" /></td></tr>
+    <tr><td>幻灯图片位置: </td>
+        <td><select name="orderid">
+                <option value = 1 selected>1</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+            </select>
+        </td>
+    </tr>
+    <!--{/if}-->
+    
+    <tr><td>操作: </td>
+        <td>
+        <!--{if $do == 'edit'}-->
+            <input type="hidden" name="editsave" value="1" />
+        <!--{/if}-->
+            <input type="submit" value="确认添加" class="doaction" name="imgsubmit" onclick="saveimg();return false;"/>
+        
+        &nbsp;&nbsp;<input type="reset" class="doaction" value="重置" /></td>
+    </tr>
+    </table>
+    <input type="hidden" name="typeid" value="$type" />
+    </div>
+    <script src="admin/tpl/script_calendar.js" type="text/javascript"></script>
+    <script src="admin/tpl/ajax.js" type="text/javascript"></script>
+</form>
+</div>

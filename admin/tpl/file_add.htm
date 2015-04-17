@@ -1,0 +1,37 @@
+<!-- 上传文件 -->
+
+<div class="r21">
+    <div class="tit24" style="font-size:12px;padding-bottom:5px;"><a href="{$adminurl}">文件管理</a> >>上传文件</div>
+
+	<form name="uploadform" enctype="multipart/form-data" action="{$adminurl}&do=add" method="post">
+		<div id="append_parent"></div>
+		<div class="bdrcontent" style="border-color:#D7D7D7;margin-top:-1px;">
+			<table cellspacing="1" cellspacing="0" class="formtable">
+				<tr>
+					<td width="100">文件上传: </td>
+					<td width="700"><input name="upfile" type="file" />&nbsp;
+					</td>
+				</tr>
+				
+				<tr><td>文件标题: </td><td><input type="text" name="title" width="400" value="$fileInfo['title']"/></td></tr>
+				
+				
+				<tr><td>操作: </td>
+					<td>
+					<!--{if $do == 'edit'}-->
+						<input type="hidden" name="id" value="$fileInfo['id']" />
+						<input type="submit" value="确认提交" class="doaction" name="fileEditSubmit" />
+					<!--{else}-->
+						<input type="submit" value="确认添加" class="doaction" name="filesubmit" />
+					<!--{/if}-->
+						
+					
+					&nbsp;&nbsp;<input type="reset" class="doaction" value="重置" /></td>
+					<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+				</tr>
+			</table>
+
+		</div>
+		
+    </form>
+</div>

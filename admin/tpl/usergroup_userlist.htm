@@ -1,0 +1,71 @@
+<!-- 添加图片 -->
+
+<div class="tit24" style="font-size:12px;padding-bottom:5px;"><a href="{$adminurl}">用户组管理</a> >>管理用户组别</div>
+<div class="r21">
+    <div class="an3">
+        <a href="{$adminurl}&op=$op&do=all" style="width:100px;" <!--{if $do == 'all'}-->class="lg08"<!--{else}-->class="lg8"<!--{/if}-->>有组别的用户</a> 
+        <a href="{$adminurl}&op=$op&do=new" style="width:100px;" <!--{if $do == 'new'}-->class="lg08"<!--{else}-->class="lg8"<!--{/if}-->>赋予新用户组别</a> 
+    </div>
+    <div class="bdrcontent">
+
+    <!--{if $do == 'all'}-->
+
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <td width="150">用户名 </td>
+        <td width="200">所属用户组</td>
+        <td width="200">操作</td>
+    </tr>
+    <!--{if $users}-->
+    <!--{loop $users $user}-->
+    <form action="{$pageurl}&do=modify" method="post">
+    <tr><td>$user[username]</td>
+        <td>
+        <select name="gid">
+            <!--{loop $_SGLOBAL['groupname'] $gid $gname}-->
+            <option value="$gid" <!--{if $user[groupid] == $gid}-->selected<!--{/if}-->>$gname[groupname]</option>
+            <!--{/loop}-->
+        </select>
+        </td>
+        <td><input type="submit" value="保存修改" class="doaction" name="modifysubmit" />&nbsp;&nbsp;<input type="submit" value="删除" class="doaction" name="delsubmit" /></td>
+    </tr>
+    <input type="hidden" name="uid" value="$user[id]" />
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+    </form>
+    <!--{/loop}-->
+    <!--{else}-->
+    <tr><td></td><td>没有相关信息</td></tr>
+    <!--{/if}-->
+    </table>
+
+    <!--{elseif $do == 'new'}-->
+
+    <form action="{$pageurl}&do=new" method="post">
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <td width="200">用户名 : </td>
+        <td width="400"><input type="text" name="username" /></td>
+    </tr>
+    <tr>
+        <td width="200">用户组 : </td>
+        <td width="400">
+        <select name="gid">
+            <!--{loop $_SGLOBAL['groupname'] $gid $gname}-->
+            <option value="$gid">$gname[groupname]</option>
+            <!--{/loop}-->
+        </select>
+        </td>
+    </tr>
+    <tr><td>操作: </td>
+        <td><input type="submit" value="确认添加" class="doaction" name="newsubmit" />&nbsp;&nbsp;
+            <input type="reset" class="doaction" value="重置" />
+        </td>
+    </tr>
+    </table>
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+    </form>
+
+    <!--{/if}-->
+
+    </div>
+</div>

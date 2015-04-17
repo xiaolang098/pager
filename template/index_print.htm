@@ -1,0 +1,46 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="#">针式打印机网</a>><a href="#">涉税区</a>>$result['title']
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+    <div class="list_left">
+    <h2>热点推荐</h2>
+        <!--{loop $arr_pic $k $v}-->
+            <div class="zhanshi"  style=" margin-top:5px;">
+            <ul class="tu_top"></ul>
+            <ul class="tu_center">
+                <li><a href="/index.php?ac=article&id=$v['id']" title="$v['title']" target="_blank"><span><img src="/$v['pic']" width="129" height="84" alt="" /></span></a></li>
+            </ul>
+            <ul class="tu_bottom">
+                <li><a href="/index.php?ac=article&id=$v['id']">$v['title']</a></li>
+            </ul>
+            </div>
+        <!--{/loop}-->
+    </div>
+    <div id="list_right">
+    <h3>打印机</h3>
+        <div class="dtimage">
+            <dl>
+                <dt><a href="#" title="" target="_blank"><span><img src="/$result['pic']" width="129" height="104" alt="" /></span></a></dt>
+            </dl>
+        </div>
+        <div class="imageshuxing">
+            <h1>$result['title']</h1>
+            <dl>
+                <dd>
+                $result['content']
+                </dd>
+            </dl>
+        </div>
+        <div class="gengduoxingqing">
+            <h6>产品详情</h6>
+            <p>$result['productInfo']</p>
+        </div>
+    </div>
+</div>
+
+<!--{template footer}-->

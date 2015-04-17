@@ -1,0 +1,86 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="#">票服网首页</a>><a href="#">会员中心</a>><a href="#">我要留言</a>
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+	<!--{template space_left}-->
+	<div id="list_right">
+    <h3>我要留言</h3>
+        <div class="ziliao_info">
+		<form action="/space.php?do=docomment" method="post" onsubmit="return checksubmit();">
+				<table width="743px" cellspacing="15" cellpadding="0">
+				  <tr>
+					<td width="71" ><span>*&nbsp;</span>留言类型:</td>
+					<td width="625" ><select name=""><option>意见反馈</option></select></td>
+				  </tr>
+				  <tr>
+					<td><span>*&nbsp;</span>留言标题：</td>
+					<td><input id="title" name="title" type="text" value="" class="titleinput" onblur="chktitle();"/><p id="errortitle"></p></td>
+				  </tr>
+				  <tr>
+					<td><span>*&nbsp;</span>留言内容：</td>
+					<td><textarea id="content" name="content" type="text"  class="information" onblur="chkcontent();"/></textarea>
+					<p id="errorcontent"></p></td>
+				  </tr>
+				  <tr>
+					<td><span>*&nbsp;</span>电话手机：</td>
+					<td><input id="phone" name="phone" type="text" value="" class="titleinput2" onblur="chkphone();"/><p id="errorphone"></p></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;电子邮件：</td>
+					<td><input id="email" name="email" type="text" value="" class="titleinput2"/></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;&nbsp;MSN/QQ:</td>
+					<td><input id="qq" name="qq" type="text" value="" class="titleinput2"/></td>
+				  </tr>
+				  <tr>
+					<td>&nbsp;</td>
+					<td><input name="docommentsubmit" type="submit"  value="留言" style=" width:85px; height:30px; line-height:25px; color:#333;" />
+					<input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+					</td>
+				  </tr>
+			</table>
+		</form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var checktitle = true;
+	var checkcontent = true;
+	var checkphone = true;
+	function chktitle(){
+		var title = $("#title").val();
+		var titlelen = getStrLong(title);
+		if(titlelen == 0){
+			$("#errortitle").html('请输入标题');
+			checktitle = false;
+		}
+	}
+	function chkcontent(){
+		var content = $("#content").val();
+		var contentlen = getStrLong(content);
+		if(contentlen == 0){
+			$("#errorcontent").html('请输入内容');
+			checkcontent = false;
+		}
+	}
+	function chkphone(){
+		var phone = $("#phone").val();
+		var phonelen = getStrLong(phone);
+		if(phonelen == 0){
+			$("#errorphone").html('请输入电话');
+			checkphone = false;
+		}
+	}
+	function checksubmit(){
+		if(checktitle ==false || checkcontent==false || checkemail == false ){
+			return false;
+		}
+	}
+</script>
+<!--{template footer}-->

@@ -1,0 +1,24 @@
+<!-- 添加TAG -->
+<div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;"><a href="{$adminurl}">文章分类管理</a> >><!--{if $do == 'edit'}-->编辑<!--{else}-->添加<!--{/if}-->文章分类</div>
+<form action="{$adminurl}&do=$do" method="post">
+<div class="bdrcontent">
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <th width="180">分类名称：</th>
+        <td width="250"><input type="text" class="inp21" name="typeName" value="$typeInfo['typeName']"/></td>
+    </tr>
+    <tr>
+        <th>操作：</th>
+        <td>
+		<!--{if $do == 'edit'}-->
+			<input type="hidden" value="$typeInfo['typeId']" name="typeId">
+			<input type="submit" class="doaction" value="确认编辑" name="typeeditsubmit" />
+		<!--{else}-->
+			<input type="submit" class="doaction" value="确认添加" name="typeaddsubmit" />
+		<!--{/if}-->
+		</td>
+    </tr>
+    </table>
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</div>
+</form>

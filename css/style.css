@@ -1,0 +1,89 @@
+body{font-size:12px;font-family:"宋体";margin:0px;line-height:1.125;background:url(../images/body.jpg) repeat-x;}
+img,a img{border:0px;}
+table{font-size:12px;}
+br{font-size:12px;}
+div,ul,li,p,dl,dt,dd,textarea,address,blockquote,input,select{height:auto;text-align:left;font-size:12px;color:#252525;}
+input{color:#333;}
+.clear{clear:both;height:0px;overflow:hidden;}
+a{text-decoration:none;color:#252525;}
+a:hover{text-decoration:underline;color:#9cb53c;}
+.top10{padding-top:10px;clear:both;}
+p,dl,dt,dd{margin:0px;padding:0px;}
+h1{font-size:14px;padding:0px;margin:0px;}
+ul,li,form{margin:0px;padding:0px;list-style:none;}
+.w980{margin:10px auto 0px;}
+
+.tit22{width:1072px;border-bottom:1px #909090 solid;background:#99C521;padding:15px 29px 0px 15px;font:bold 18px/22px 宋体;color:white;height:34px;}
+.tit22 a{float:right;font:normal 16px/18px 宋体;color:white;}
+.tit23{font:normal 20px/28px 宋体;}
+.tit24{font:normal 12px/26px 宋体;padding:5px;}
+.tit24 b{color:#f00;}
+.bor21{background:#fff;padding-bottom:20px;}
+.form4{padding:102px 0px 102px 232px;width:300px;}
+.form4 div{padding-bottom:15px;font:normal 16px/18px 宋体;}
+.inp21{height:20px;width:180px;line-height:20px;vertical-align:middle;}
+.cen21{text-align:center;}
+.btn21{padding:5px 15px 1px;text-align:center;}
+.btn22{padding:5px 4px 1px;text-align:center;vertical-align:middle;}
+.form5{padding:40px 0px 0px 20px;}
+.form5 div{padding-bottom:15px;font-size:14px;}
+.form5 div span{font:normal 16px/20px 宋体;}
+.l21{border-left:0px;width:149px;float:Left;margin-top:2px;margin-top:10px;background:#DDE6EB;height:718px;}
+.r21{float:left;margin-left:15px;}
+.div21{padding:10px 10px 10px 30px;border:1px solid #ECF1F3;color:#039;}
+.div21 a{color:#039;}
+.div21 a.here{font-weight:bold;}
+.list21{padding-left:49px;}
+.list21 li{line-height:28px;height:28px;}
+.list21 li.here{font-weight:bold;}
+.list21 li a{color:#000;}
+.tab21{background:#DEDEDE;}
+.tab21 th{background:#EEEEEE;color:#000;padding:7px 0px;text-align:center;}
+.tab21 td{background:#fff;text-align:center;padding:10px 0px;color:#000;line-height:16px;}
+.tab21 .le01{padding:0px 5px;text-align:center;}
+.tab21 select{margin-top:2px;}
+.tab21 a.blue1{color:#00f;text-decoration:underline;}
+.tab21 a.blue2{color:#09f;text-decoration:underline;}
+.tab21 a.red1{color:#f00;}
+.tab22{width:740px;margin-top:15px;}
+.tab22 th{font:normal 14px/20px 宋体;padding:6px 0px 0px;}
+.tab22 td{font-size:12px;padding:8px 0px 0px;text-align:left;line-height:18px;}
+.tab22 span{color:#666;}
+.tab22 textarea{width:640px;height:210px;}
+.tab22 a{color:#000;}
+.page21{color:#00f;padding-top:20px;}
+.page21 a{color:#00f;}
+.page21 a.under{text-decoration:underline;}
+.w871{overflow:auto;width:815px;height:950px;}
+.w1000{width:1000px;}
+.w1200{width:1500px;}
+
+.bdrcontent{border:1px solid #D7D7D7;padding:5px;margin-top:-1px;padding-left:10px;}
+.formtable th, .formtable td {border-bottom:1px solid #F2F2F2;line-height:1.5em;padding:0.5em 0;vertical-align:top;}
+
+/*page*/
+.page3{  margin:15px auto 0; clear:both; overflow:hidden;}
+.page3 dt{ float:left;}
+.page3 dt a{ float:left;background:url(../images/lg_bg9.gif) no-repeat; width:73px; text-align:center; height:24px; line-height:24px; margin-right:7px;}
+.page3 dt a:hover{ color:#000;}
+.page3 dd{ float:right; line-height:19px;}
+.page3 dd a{ float:left; margin-right:4px; border:1px solid #ccc; padding:0 6px;}
+.page3 dd a.here{ padding-top:1px;border:0; font-weight:bold; color:#9cb53c;}
+.page3 dd div{ float:left; padding:1px 4px 0 0;}
+
+/* pic */
+div.an3 {height:27px;padding-left:8px;}
+div.an3 a.lg08 {background-color:#99C521;border-bottom:medium none #FCFCFC;font-weight:bold;color:white;}
+div.an3 a {border-color:#E3E3E3 #E3E3E3 #D7D7D7;border-style:solid;border-width:1px;float:left;font:12px/14px 微软雅黑,宋体;height:19px;margin-right:2px;padding:6px 21px 0;}
+
+.footactions {text-align:center;}
+.submit {background:none repeat scroll 0 0 #99C521;border:medium none;color:#FFFFFF;cursor:pointer;height:24px;letter-spacing:1px;line-height:20px;padding:0 5px;}
+.doaction {background:none repeat scroll 0 0 #99C521;border:medium none;color:#FFFFFF;cursor:pointer;height:24px;letter-spacing:1px;line-height:20px;padding:3px 6px;}
+
+/* login */
+.c_form {padding:0.5em 3em;}
+.t_input{border:1px solid #EEEEEE;color:#333333;height:20px;line-height:20px;}
+
+.popupmenu_layer {background:url("ilayer.gif") no-repeat scroll 0 0 transparent;height:75px;line-height:75px;text-align:center;width:225px;}
+.style4 {background: none repeat scroll 0 0 #FCF9E6;border: 1px solid #CDCDCD;}
+.block {border: 1px solid #EFF5F8;margin-bottom: 10px;padding: 0.5em 1em;}

@@ -1,0 +1,72 @@
+<!-- 查看用户组 -->
+<!--{if $group}-->
+<div class="tit24" style="font-size:12px;border-bottom:1px solid #99C521;padding-bottom:5px;"><a href="{$adminurl}">用户组管理</a> >>编辑用户组</div>
+<form action="{$pageurl}" method="post">
+    <div class="bdrcontent">
+    <table cellspacing="1" cellspacing="0" class="formtable">
+    <tr>
+        <th width="100">用户组名称</th>
+        <td>
+        <input type="text" value="$group[groupname]" name="groupname" />
+        </td>
+    </tr>
+    <tr>
+        <th style="width: 12em;">管理员身份</th>
+        <td>
+        <input type="radio" value="1" name="manageconfig" <!--{if $group[system] == -1}-->checked<!--{/if}--> /> 拥有管理员身份
+        <input type="radio" value="0" name="manageconfig" <!--{if $group[system] != -1}-->checked<!--{/if}--> /> 禁止
+        <br><strong style="color:red;">注意 :</strong> 该用户组成员拥有管理员身份后，将不再受下面权限设置，将自动拥有全部权限
+        </td>
+    </tr>
+    <tr>
+        <th>极客申请管理</th>
+        <td>
+        <input type="radio" value="1" name="allowmember" <!--{if $group[managemember] == 1}-->checked<!--{/if}--> /> 可管理
+        <input type="radio" value="0" name="allowmember" <!--{if $group[managemember] == 0}-->checked<!--{/if}--> /> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>用户组管理</th>
+        <td>
+        <input type="radio" value="1" name="allowusergroup" <!--{if $group[manageusergroup] == 1}-->checked<!--{/if}--> /> 可管理
+        <input type="radio" value="0" name="allowusergroup" <!--{if $group[manageusergroup] == 0}-->checked<!--{/if}--> /> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>文章管理</th>
+        <td>
+        <input type="radio" value="1" name="allowarticle" <!--{if $group[managearticle] == 1}-->checked<!--{/if}--> /> 可管理
+        <input type="radio" value="0" name="allowarticle" <!--{if $group[managearticle] == 0}-->checked<!--{/if}--> /> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>图片管理</th>
+        <td>
+        <input type="radio" value="1" name="allowpic" <!--{if $group[managepic] == 1}-->checked<!--{/if}--> /> 可管理
+        <input type="radio" value="0" name="allowpic" <!--{if $group[managepic] == 0}-->checked<!--{/if}--> /> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>TAG管理</th>
+        <td>
+        <input type="radio" value="1" name="allowtag" <!--{if $group[managetag] == 1}-->checked<!--{/if}--> /> 可管理
+        <input type="radio" value="0" name="allowtag" <!--{if $group[managetag] == 0}-->checked<!--{/if}--> /> 禁止
+        </td>
+    </tr>
+    <tr>
+        <th>日志管理</th>
+        <td>
+        <input type="radio" value="1" name="allowlog" <!--{if $group[managelog] == 1}-->checked<!--{/if}--> /> 可管理
+        <input type="radio" value="0" name="allowlog" <!--{if $group[managelog] == 0}-->checked<!--{/if}--> /> 禁止
+        </td>
+    </tr>
+    </table>
+    <div class="footactions">
+        <input type="hidden" value="$group[gid]" name="gid">
+        <input type="hidden" value="$group[groupname]" name="gname">
+        <input type="submit" class="submit" value="保存" name="editsubmit">
+    </div>
+    </div>
+    <input type="hidden" name="formhash" value="<!--{eval echo formhash();}-->" />
+</form>
+<!--{/if}-->

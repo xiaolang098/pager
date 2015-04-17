@@ -1,0 +1,32 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/index.php">针式打印机网</a>><a href="/index.php?ac=categoy&id=$result['typeId']">$config_category[$result['typeId']]</a>
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+    <div class="list_left">
+    <h2>热点推荐</h2>
+        <!--{loop $arr_pic $k $v}-->
+            <div class="zhanshi"  style=" margin-top:5px;">
+            <ul class="tu_top"></ul>
+            <ul class="tu_center">
+                <li><a href="/index.php?ac=article&id=$v['id']" title="$v['title']" target="_blank"><span><img src="/$v['pic']" width="129" height="84" alt="" /></span></a></li>
+            </ul>
+            <ul class="tu_bottom">
+                <li><a href="/index.php?ac=article&id=$v['id']">$v['title']</a></li>
+            </ul>
+            </div>
+        <!--{/loop}-->
+    </div>
+    <div id="list_right">
+    <h3>$result['title']</h3>
+    <p class="jieshao"><span><b>$result['title']</b><br /></span>
+                                                                                       
+          <a href="/down.php?id=$result['code']">点击这里下载</a>
+    </div>
+</div>
+
+<!--{template footer}-->

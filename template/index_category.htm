@@ -1,0 +1,21 @@
+<!--{template header}-->
+
+<div class="guide">
+&nbsp;&nbsp;&nbsp;本站导航：<a href="/">针式打印机网</a>> $config_category[$categoryId]
+</div>
+<div class="guide_right"></div>
+</div>
+
+<div class="listing_center">
+    <!--{template index_hot}-->
+    <div id="list_right">
+    <h3>$config_category[$categoryId]</h3>
+        <!-- {loop $result $k $val} -->
+        <div class="weixiu_title">
+            <h4><a href="/index.php?ac=article&id=$val['id']">$val['title']</a></h4>
+        </div>
+        <!-- {/loop} -->
+    </div>
+</div>
+
+<!--{template footer}-->
